@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "gatsby";
 import Logo from "@/icons/Logo";
 import ScrollLink from "@/components/ScrollLink";
+import Icon from "@/components/Icon";
 import HeaderNav from "@/components/Header/HeaderNav";
 
 const Header = () => {
@@ -22,6 +23,10 @@ const Header = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [navClass, setNavClass] = useState(false);
+
+  const [scrolling, setScrolling] = useState(false);
+  const [scrollTop, setScrollTop] = useState(0);
+
   const node = useRef();
 
   const handleClick = (e) => {
@@ -32,17 +37,27 @@ const Header = () => {
   };
 
   useEffect(() => {
-    document.addEventListener("click", handleClick);
-    document.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      document.removeEventListener("click", handleClick);
-      document.removeEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      window.pageYOffset > 30 ? setNavClass(true) : setNavClass(false);
     };
-  }, []);
 
-  const handleScroll = () => {
-    window.pageYOffset > 30 ? setNavClass(true) : setNavClass(false);
-  };
+    window.addEventListener("click", handleClick);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("click", handleClick);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [navClass]);
+
+  // useEffect(() => {
+  //   const onScroll = (e) => {
+  //     setScrollTop(e.target.documentElement.scrollTop);
+  //     setScrolling(e.target.documentElement.scrollTop > scrollTop);
+  //   };
+  //   window.addEventListener("scroll", onScroll);
+
+  //   return () => window.removeEventListener("scroll", onScroll);
+  // }, [scrollTop]);
 
   const navData = {
     pages,
@@ -50,17 +65,21 @@ const Header = () => {
     setMenuOpen,
   };
 
+  // console.log(scrollTop);
+
   return (
     <header
       className={`${
-        navClass ? "header bg-grey-700 z-50 py-4" : "py-8 header bg-transparent"
+        scrollTop > 10
+          ? "header bg-grey-700 z-50 py-4"
+          : "py-8 header bg-transparent"
       }  sticky top-0 z-50`}
       ref={node}>
       <div className="container-lg ">
         <div className="flex w-full justify-between items-center">
           <div className="flex w-full items-center justify-between">
             <Link className="nav__brand " to="/">
-              <Logo />
+              <Icon icon="logo" />
             </Link>
 
             <div className="hidden lg:flex items-center">
@@ -73,7 +92,7 @@ const Header = () => {
                   text={item.label}
                 />
               ))}
-              <Link className="btn btn--small ml-6" to="/kontakt/">
+              <Link className="btn btn--small ml-6" to="/contact/">
                 Dołącz
               </Link>
             </div>
