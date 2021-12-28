@@ -1,0 +1,111 @@
+.card-dark {
+  @apply py-8 px-12;
+
+  .markdown-content {
+    h4,
+    h3,
+    h5,
+    h6 {
+      @apply text-cam-white;
+    }
+
+    h4 {
+      @apply text-h6;
+    }
+
+    p {
+      @apply text-body-dark;
+    }
+  }
+}
+.card-dark,
+.card-business {
+  @apply rounded-sm border-black-3 border-1 bg-gradient-black shadow-black;
+}
+
+.card-business {
+  transition: 0.4s all ease;
+
+  h4,
+  h3,
+  h5,
+  h6,
+  p {
+    transition: 0.4s all ease;
+  }
+
+  &:hover {
+    h4,
+    h3,
+    h5,
+    h6 {
+      @apply text-black;
+    }
+
+    p {
+      @apply text-black;
+    }
+  }
+}
+
+.card-light {
+  @apply py-12 px-6 rounded-md border-1 border-grey-200 bg-gradient-lightest shadow-3;
+
+  @screen xl {
+    @apply px-8;
+  }
+
+  .markdown-content {
+    h4 {
+      @apply text-black text-lg  font-bold leading-6;
+
+      @screen xl {
+        @apply px-6;
+      }
+    }
+
+    p {
+      @apply text-grey-600 font-normal leading-6;
+    }
+  }
+}
+
+.cards {
+  &__bg {
+    @apply absolute left-0 right-0 z-minus w-full bg-grey-700 h-full top-0; //koment
+    transform: skewY(-8deg);
+
+    &::after {
+      content: "";
+      width: 50%;
+      height: 60px;
+      bottom: -60px;
+      @apply absolute left-0;
+      background-image: linear-gradient(90deg, #f09819 0%, #ff512f 100%);
+    }
+    &::before {
+      content: "";
+      width: 70%;
+      height: 60px;
+      top: -60px;
+      @apply absolute right-0;
+      background-image: linear-gradient(90deg, #ff512f 0%, #f09819 100%);
+    }
+  }
+}
+
+.job-card {
+  @apply relative rounded-sm pt-14 px-8;
+
+  @screen lg {
+    @apply px-20;
+  }
+  @screen xl {
+    @apply px-26;
+  }
+  &:after {
+    content: "";
+    @apply bg-white absolute top-0 left-0 right-0 z-minus;
+    bottom: 100px;
+  }
+}

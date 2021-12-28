@@ -1,0 +1,34 @@
+.switch {
+  input {
+    @apply opacity-0 absolute;
+    height: 0;
+    width: 0;
+
+    &:checked + label {
+      @apply bg-blue;
+    }
+
+    &:checked + label:after {
+      left: auto;
+      transform: translate(0, -50%);
+    }
+  }
+
+  label {
+    @apply relative inline-block cursor-pointer bg-blue-800 rounded-xl;
+    width: 5.25rem;
+    height: 3rem;
+    cursor: pointer;
+
+    &:after {
+      content: '';
+      @apply absolute rounded-full bg-white;
+      transition: 0.4s all ease;
+      top: 50%;
+      transform: translate(-100%, -50%);
+      width: 2rem;
+      height: 2rem;
+      box-shadow: 1px 3px 6px #666666;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.job-content {
+  h4,
+  h2 {
+    @apply text-h4 text-black mb-5;
+  }
+  p {
+    @apply text-lg mb-6 leading-8 text-grey-600 font-normal;
+  }
+
+  ul {
+    @apply mb-12 pl-5;
+    list-style: square;
+
+    li {
+      @apply text-lg leading-8 text-grey-600 font-normal;
+      strong {
+        @apply text-lg text-black;
+      }
+      @apply relative mb-5 pl-5;
+
+      &::marker {
+        @apply text-orange-500;
+      }
+    }
+  }
+}

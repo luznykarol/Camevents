@@ -1,0 +1,117 @@
+.input,
+.textarea {
+  @apply w-full;
+  transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+  &::placeholder,
+  &::-ms-input-placeholder,
+  &:-ms-input-placeholder {
+    @apply text-black;
+  }
+
+  // &:hover {
+  //   @apply border-grey-darker;
+  // }
+
+  &:active,
+  &:focus {
+    @apply outline-none;
+  }
+
+  &[disabled] {
+    @apply cursor-not-allowed;
+  }
+}
+
+.form-container {
+  @apply relative overflow-hidden;
+
+  &__status {
+    @apply flex items-center justify-center absolute z-10 w-full h-full opacity-0;
+    transform: translateY(100%);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+
+    h1 {
+      @apply m-0 text-center;
+    }
+
+    &--active {
+      @apply opacity-100;
+      transform: translateY(0);
+    }
+  }
+}
+
+.label {
+  @apply font-bold text-base mb-2 pl-1;
+}
+
+.input {
+  @apply appearance-none px-5 py-3 shadow-none;
+  line-height: 20px;
+  height: 48px;
+
+  .inline-input {
+    @apply inline;
+  }
+}
+
+.textarea {
+  @apply block min-w-full resize-y px-5 py-3;
+  min-height: 200px;
+
+  .inline-textarea {
+    @apply inline;
+  }
+}
+/* purgecss start ignore */
+.control {
+  @apply flex flex-col mb-4;
+  &__error {
+    @apply font-bold pl-1;
+  }
+}
+
+/* purgecss end ignore */
+
+.field-grouped {
+  @apply mb-4;
+  > .control {
+    @apply mb-0;
+    &:not(:last-child) {
+      @apply mb-2;
+    }
+  }
+}
+
+.field {
+  @apply relative flex flex-col;
+  &__label {
+    @apply block text-black text-sm mb-2 font-medium;
+  }
+
+  &__input,
+  &__textarea {
+    @apply border-1 border-input  w-full px-2 py-2  rounded-sm;
+    height: 3.313rem;
+    transition: 0.4s outline ease;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px) 50%;
+
+    &:focus,
+    &:hover,
+    &:active {
+      outline-color: #163662;
+    }
+  }
+
+  &__textarea {
+    @apply leading-6;
+    min-height: 180px;
+  }
+
+  &__error {
+    @apply absolute left-0 text-red text-sm font-normal w-full text-left leading-none inline-block;
+    top: calc(100% + 8px);
+  }
+}

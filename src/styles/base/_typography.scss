@@ -1,0 +1,110 @@
+html {
+  @apply text-base text-cam-white;
+}
+
+body {
+  font-size: 1rem;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  @apply text-base;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title-1,
+.title-2,
+.title-3,
+.title-4,
+.title-5,
+.title-6 {
+  @apply font-bold;
+  clear: both;
+}
+
+h1,
+.title-1 {
+  @apply text-h2 leading-h2 mb-6;
+  @screen md {
+    @apply text-h1 leading-h1 mb-6;
+  }
+}
+
+h2,
+.title-2 {
+  @apply text-h3 mb-6;
+
+  @screen md {
+    @apply text-h2 mb-6 leading-h2;
+  }
+}
+
+h3,
+.title-3,
+blockquote {
+  @apply text-h3;
+}
+
+h4,
+.title-4 {
+  @apply text-lg;
+}
+
+h5,
+.title-5 {
+  @apply text-h5;
+}
+
+h6,
+.title-6 {
+  @apply text-h6;
+}
+
+.markdown-content {
+  strong {
+    @apply text-black;
+  }
+  a {
+    @apply inline-flex font-semibold leading-none text-cam-white justify-center rounded-sm py-6 px-8 bg-blue mt-8;
+    transition: 0.4s transform ease;
+    align-items: baseline;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+  h4 {
+    @apply text-black text-h4 mb-3;
+  }
+
+  p {
+    @apply leading-6 mb-4;
+
+    &:last-of-type {
+      @apply mb-0;
+    }
+  }
+
+  img {
+    @apply mt-10 max-w-full;
+  }
+}
+
+.description {
+  @apply text-h6 leading-8 font-normal;
+
+  &--light {
+    @apply text-body;
+  }
+  &--dark {
+    @apply text-body-dark;
+  }
+}

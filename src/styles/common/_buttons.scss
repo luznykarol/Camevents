@@ -1,0 +1,17 @@
+.btn {
+  @apply bg-gradient-button-secondary inline-flex font-semibold leading-none text-cam-white justify-center rounded-button;
+  align-items: baseline;
+  transition: 0.4s transform ease;
+
+  &--small {
+    @apply py-3 px-6;
+  }
+
+  &--medium {
+    @apply py-6 px-8;
+  }
+
+  &--large {
+    @apply p-4 p-6;
+  }
+}

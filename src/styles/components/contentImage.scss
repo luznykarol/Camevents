@@ -1,0 +1,9 @@
+.contentImage {
+  &__img {
+    width: 80%;
+
+    @screen lg {
+      width: 40%;
+    }
+  }
+}

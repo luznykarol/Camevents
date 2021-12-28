@@ -1,0 +1,17 @@
+.footer {
+  &__bg {
+    @apply absolute left-0 right-0 z-minus w-full bg-blue-300;
+    transform: skewY(-8deg);
+    bottom: -200px;
+    // height: 500px;
+
+    &::before {
+      content: '';
+      width: 60%;
+      height: 60px;
+      top: -60px;
+      @apply absolute right-0;
+      background-image: linear-gradient(90deg, #ff512f 0%, #f09819 100%);
+    }
+  }
+}

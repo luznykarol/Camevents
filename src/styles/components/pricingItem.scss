@@ -1,0 +1,113 @@
+/* purgecss start ignore */
+.pricing {
+  @apply relative bg-white;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+
+  &__content {
+    @apply h-full flex flex-col;
+
+    &--top {
+      p {
+        @apply min-h-10 pr-6 mt-2;
+      }
+    }
+    h4 {
+      @apply text-h5 font-semibold;
+    }
+
+    h3 {
+      @apply font-bold mb-0;
+    }
+
+    h3,
+    h4 {
+      @apply text-black leading-none;
+    }
+
+    ul {
+      @apply pl-5;
+      li {
+        @apply mb-4 font-medium text-black text-sm;
+        list-style: url("/img/check.png");
+
+        &::marker {
+          font-size: 13px;
+        }
+      }
+    }
+
+    span,
+    p {
+      @apply text-grey-600 text-sm leading-5;
+    }
+
+    &--featured {
+      h4,
+      h3 {
+        @apply text-blue;
+      }
+    }
+
+    &--bottom {
+      @apply flex flex-col justify-between;
+      p {
+        &:first-of-type {
+          a {
+            @apply text-cam-white p-3 text-sm font-semibold bg-blue-500 flex justify-center items-center mt-16;
+          }
+        }
+        // &:last-of-type {
+        //   a {
+        //     @apply mt-2 block bg-transparent text-sm py-3 text-center text-black;
+        //   }
+        // }
+      }
+    }
+  }
+
+  &--common {
+    @apply border-blue border-1 bg-blue-300;
+
+    // &:before {
+    //   content: 'Most common';
+
+    // }
+  }
+}
+.featured__heading {
+  top: -38px;
+  left: 50%;
+  transform: translateX(-50%);
+  @apply hidden bg-blue  p-3 w-full  justify-center items-center uppercase text-cam-white text-sm font-semibold absolute;
+}
+
+.pricing-section {
+  .pricing {
+    @apply max-w-md mx-auto w-full mb-8;
+    @screen lg {
+      @apply max-w-none mb-0 mx-0;
+    }
+  }
+
+  .featured__heading {
+    @screen lg {
+      @apply flex;
+    }
+  }
+
+  &--full {
+    .pricing {
+      @apply mb-8 max-w-md w-full mx-auto;
+      @screen lg {
+        @apply max-w-none mb-0 mx-0;
+      }
+    }
+    .featured__heading {
+      @screen lg {
+        @apply flex;
+      }
+    }
+  }
+}
+
+/* purgecss end ignore */

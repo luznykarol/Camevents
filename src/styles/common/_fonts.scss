@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Sen";
+  src: url("/fonts/Sen/Sen-Bold.woff2") format("woff2"),
+    url("/fonts/Sen/Sen-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sen";
+  src: url("/fonts/Sen/Sen-Regular.woff2") format("woff2"),
+    url("/fonts/Sen/Sen-Regular.woff") format("woff");
+  font-style: normal;
+  font-display: swap;
+}
