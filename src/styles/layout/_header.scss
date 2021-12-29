@@ -218,3 +218,10 @@
 
   transition: all 0.6s;
 }
+
+.pill-image {
+  @apply w-full mx-auto rounded-l;
+  max-width: 350px;
+  z-index: 0;
+  top: 30px;
+}

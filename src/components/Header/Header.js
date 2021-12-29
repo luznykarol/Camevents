@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "gatsby";
-import Logo from "@/icons/Logo";
 import ScrollLink from "@/components/ScrollLink";
 import Icon from "@/components/Icon";
 import HeaderNav from "@/components/Header/HeaderNav";
@@ -9,15 +8,19 @@ const Header = () => {
   const pages = [
     {
       label: "Jak dołączyć",
-      href: "#features",
+      href: "#howSection",
     },
     {
       label: "FAQ",
-      href: "#faq",
+      href: "#faqSection",
     },
     {
       label: "O nas",
-      href: "#about",
+      href: "#halfSection",
+    },
+    {
+      label: "Kontakt",
+      href: "#mapSection",
     },
   ];
 
@@ -33,7 +36,7 @@ const Header = () => {
     if (node.current.contains(e.target)) {
       return;
     }
-    setMenuOpen(false);
+    setMenuOpen(!menuOpen);
   };
 
   useEffect(() => {
@@ -63,6 +66,7 @@ const Header = () => {
     pages,
     menuOpen,
     setMenuOpen,
+    handleClick,
   };
 
   // console.log(scrollTop);
@@ -70,9 +74,7 @@ const Header = () => {
   return (
     <header
       className={`${
-        scrollTop > 10
-          ? "header bg-grey-700 z-50 py-4"
-          : "py-8 header bg-transparent"
+        navClass ? "header bg-grey-700 z-50 py-4" : "py-8 header bg-transparent"
       }  sticky top-0 z-50`}
       ref={node}>
       <div className="container-lg ">
@@ -92,7 +94,7 @@ const Header = () => {
                   text={item.label}
                 />
               ))}
-              <Link className="btn btn--small ml-6" to="/contact/">
+              <Link className="btn btn--small ml-6" to="/kontakt/">
                 Dołącz
               </Link>
             </div>

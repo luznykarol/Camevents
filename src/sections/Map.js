@@ -1,24 +1,17 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
 import { graphql, Link } from "gatsby";
-import Img from "gatsby-image";
 
 const Map = ({ data }) => {
-  const { image1 } = data.primary;
+  const { title2, content } = data.primary;
   return (
-    <section className="fullWidthImage">
-      <div className="container-lg">
-        <div className="flex">
-          <div className="">mapa</div>
-          {/* 
-          <Img
-            // style={{
-            //   position: 'absolute',
-            // }}
-            className="rounded-sm block relative"
-            // alt={data.primary.image1.alt}
-            fluid={image1.fluid}
-          /> */}
+    <section className="mapSection py-18" id="mapSection">
+      <div className="container-sm">
+        <h2 className=" uppercase text-cam-white text-center">{title2.text}</h2>
+        <div className="flex items-center justify-between">
+          <div className="md-content max-w-md text-cam-white">
+            <RichText render={content.raw} />
+          </div>
         </div>
       </div>
     </section>

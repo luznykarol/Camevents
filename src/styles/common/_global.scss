@@ -89,7 +89,11 @@ img {
   @apply text-cam-white;
 
   p {
-    @apply mb-8 leading-7;
+    @apply leading-7;
+
+    &:not(:last-of-type) {
+      @apply mb-8;
+    }
 
     strong {
       @apply text-h5;
