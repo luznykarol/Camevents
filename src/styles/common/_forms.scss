@@ -1,6 +1,6 @@
 .input,
 .textarea {
-  @apply w-full;
+  @apply w-full rounded-lg;
   transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
   &::placeholder,
@@ -74,6 +74,22 @@
 
 /* purgecss end ignore */
 
+.contact-slide-enter {
+  opacity: 0;
+}
+.contact-slide-enter-active {
+  opacity: 1;
+  transiton: opacity 0.4s ease;
+}
+.contact-slide-exit {
+  opacity: 1;
+}
+
+.contact-slide-exit-active {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
 .field-grouped {
   @apply mb-4;
   > .control {
@@ -92,11 +108,16 @@
 
   &__input,
   &__textarea {
-    @apply border-1 border-input  w-full px-2 py-2  rounded-sm;
+    @apply border-1 text-white border-input  w-full px-4 py-2  rounded-lg;
     height: 3.313rem;
+    background-color: rgba(240, 240, 240, 0.2);
     transition: 0.4s outline ease;
     background-repeat: no-repeat;
     background-position: calc(100% - 15px) 50%;
+
+    &::placeholder {
+      @apply text-white;
+    }
 
     &:focus,
     &:hover,

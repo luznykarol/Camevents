@@ -10,7 +10,7 @@ import { linkResolver } from "../utils/linkResolver";
 
 const IndexPage = ({ data }) => {
   const document = data.prismicPage.data;
-  console.log(document);
+
   const seo = {
     title: document.title.text,
     description: document.description,

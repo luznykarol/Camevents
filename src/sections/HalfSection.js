@@ -5,20 +5,24 @@ import Img from "gatsby-image";
 
 const HalfSection = ({ data }) => {
   const { image1, title2, content } = data.primary;
-  console.log("half", data);
+
   return (
     <section className="halfSection py-18" id="halfSection">
       <div className="container-sm">
-        <h2 className=" uppercase text-cam-white text-center">{title2.text}</h2>
-        <div className="flex items-center justify-between">
-          <div className="md-content max-w-md text-cam-white">
+        <div className="mx-auto text-center mb-18 ">
+          <h2 className="uppercase text-cam-white text-center">
+            {title2.text}
+          </h2>
+        </div>
+        <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="md-content md:mr-6 md:max-w-md text-cam-white">
             <RichText render={content.raw} />
           </div>
           <Img
             // style={{
             //   position: 'absolute',
             // }}
-            className="w-full max-w-xs rounded-lg block relative"
+            className="mt-6 md:mt-0 w-full max-w-xs rounded-lg block relative"
             // alt={data.primary.image1.alt}
             fluid={image1.fluid}
           />

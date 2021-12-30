@@ -99,4 +99,21 @@ img {
       @apply text-h5;
     }
   }
+
+  ul {
+    @apply mb-12 pl-5;
+    list-style: disc;
+
+    li {
+      @apply text-lg leading-8 text-cam-white font-normal;
+      strong {
+        @apply text-lg text-black;
+      }
+      @apply relative mb-2 pl-2;
+
+      &::marker {
+        @apply text-cam-white;
+      }
+    }
+  }
 }

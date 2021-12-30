@@ -1,15 +1,14 @@
-import React from 'react'
-import { withScriptjs, withGoogleMap, GoogleMap } from 'react-google-maps'
-import LazyLoad from 'react-lazyload'
+import React from "react";
+import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
+import LazyLoad from "react-lazyload";
 
-const Map = () => {
+const MapComponent = () => {
   return (
     <LazyLoad>
       <GoogleMap
-        defaultZoom={8}
-        defaultCenter={{ lat: 33.92833128840251, lng: -118.37530392438008 }}
+        defaultCenter={{ lat: 52.21966400002641, lng: 20.98528072729993 }}
         // defaultOptions={{ styles: exampleMapStyles }}
-        // defaultZoom={14}
+        defaultZoom={8}
         // defaultCenter={{ lat: -118.24696816732424, lng: -34.04975044659588 }}
       >
         {/* <Marker
@@ -18,10 +17,10 @@ const Map = () => {
         /> */}
       </GoogleMap>
     </LazyLoad>
-  )
-}
+  );
+};
 
-export default withScriptjs(withGoogleMap(Map))
+export default withScriptjs(withGoogleMap(MapComponent));
 
 // const exampleMapStyles = [
 //   {

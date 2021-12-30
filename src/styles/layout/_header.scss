@@ -2,26 +2,12 @@
 .header {
   transition: 0.4s all ease;
   position: relative;
-
-  // &:after {
-  //   content: "";
-  //   position: absolute;
-  //   bottom: 0;
-  //   left: 0;
-  //   height: 61px;
-  //   width: 100%;
-  //   background: linear-gradient(
-  //     180deg,
-  //     rgba(63, 63, 63, 0.4) 0%,
-  //     rgba(80, 80, 80, 0) 100%
-  //   );
-  // }
 }
 
 .nav {
   &__menu {
-    @apply flex flex-col p-24 absolute top-0 left-0 right-0 bottom-0 z-50 h-screen;
-    background-image: linear-gradient(260.13deg, #07172d 5.04%, #132e52 89.48%);
+    @apply flex flex-col p-24 absolute top-0 left-0 right-0 bottom-0 z-50 h-screen bg-gradient-button;
+    // background-image: linear-gradient(260.13deg, #07172d 5.04%, #132e52 89.48%);
 
     @screen lg {
       @apply hidden;
@@ -48,10 +34,11 @@
     @apply text-cam-white uppercase text-h6 font-normal leading-5;
     background-image: linear-gradient(
       to right,
-      #ff512f,
-      #f09819 50%,
+      #6331a2,
+      #8a388b 50%,
       #fff 100%
     );
+
     background-size: 1000%;
     background-position: 100%;
     -webkit-background-clip: text;

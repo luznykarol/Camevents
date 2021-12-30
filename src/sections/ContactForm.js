@@ -1,50 +1,50 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-
-import { useSocialMedia } from "@/hooks/use-social-media";
-
-import InputField from "@/components/Forms/InputField";
-import TextField from "@/components/Forms/TextField";
-import SelectField from "@/components/Forms/SelectField";
-
+import emailjs from "emailjs-com";
+import { CSSTransition } from "react-transition-group";
 import Icon from "@/components/Icon";
 
+import InputField from "@/components/Forms/InputField";
+
 const ContactForm = ({ title }) => {
-  const links = useSocialMedia();
-
-  const link = links.email.url;
-  const linkText = links.text.text;
-
-  const socialMedia = links.social_media_links;
-
   const { register, handleSubmit, reset, errors } = useForm({
     mode: "onBlur",
   });
 
   const [sent, setSent] = useState(false);
   const [isSending, setSending] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [formError, setFormError] = useState(true);
 
   const onSubmit = (data, e) => {
     e.preventDefault();
+
     if (!isSending) {
       setSending(true);
-      axios
-        .post("/api/zendesk-form", {
-          ...data,
-          subject: "Contact Form Submission",
-        })
-        .then((res) => {
-          setSending(false);
-          setSent(!sent);
-          reset();
-        })
-        .catch((error) => {
-          setSending(false);
-          setFormError(true);
-        });
+      emailjs
+        .sendForm(
+          "gmail",
+          "template_5cfaw7m",
+          e.target,
+          "user_UOTM2GzZ3z02MYUVNGngq"
+        )
+        .then(
+          (res) => {
+            setSending(false);
+            setSent(!sent);
+            setSuccess(!success);
+            reset();
+            setTimeout(() => {
+              setSuccess(false);
+            }, 3000);
+          },
+          (error) => {
+            console.log(error);
+            setSending(false);
+            setFormError(true);
+          }
+        );
     }
   };
 
@@ -61,99 +61,125 @@ const ContactForm = ({ title }) => {
     },
   });
 
+  const phoneValidation = register({
+    required: true,
+    pattern: {
+      value: /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
+    },
+  });
+
   return (
-    <section className="contact mb-48 xl:mb-80">
-      <div className="container-lg">
-        <div className="shadow-1 border-1 bg-grey-800 border-grey-200 w-full py-5 px-5 sm:py-10 sm:px-20 sm:max-w-xl relative mx-auto">
+    <section className="contact pb-32" id="contactForm">
+      <div className="container-sm">
+        <div className="mt-28 lg:mt-32 mx-auto text-center mb-18 ">
+          <h2 className="uppercase text-cam-white text-center">
+            Dołącz do nas!
+          </h2>
+        </div>
+        <p className="text-cam-white text-center">
+          Wypełnij poniższy formularz, odezwiemy się do Ciebie jak najszybciej.
+        </p>
+        <div className="w-full py-5 px-5 sm:py-10 sm:px-20 sm:max-w-xl relative mx-auto">
           <form
             id="form_1"
             className="form-wrap"
             noValidate
-            onSubmit={handleSubmit(onSubmit)}>
+            onSubmit={handleSubmit(onSubmit)}
+            action="https://formspree.io/f/mwkyplbn"
+            method="POST">
             <InputField
               type="text"
               name="name"
-              label="Name"
+              placeholder="Imię"
+              id="name"
               register={requiredOnly}
-              error={errors.firstName}
+              error={errors.name}
               errorMessage={
-                (errors.firstName &&
-                  errors.firstName.type === "required" &&
-                  "this field is required") ||
-                (errors.firstName &&
-                  errors.firstName.type === "minLength" &&
-                  "Name too short")
+                (errors.name &&
+                  errors.name.type === "required" &&
+                  "Pole wymagane") ||
+                (errors.name &&
+                  errors.name.type === "minLength" &&
+                  "Wpisane imię jest za krótkie")
+              }
+            />
+            <InputField
+              type="text"
+              name="lastName"
+              placeholder="Nazwisko"
+              id="lastName"
+              className="mt-6 rounded-lg"
+              register={requiredOnly}
+              error={errors.lastName}
+              errorMessage={
+                (errors.lastName &&
+                  errors.lastName.type === "required" &&
+                  "Pole wymagane") ||
+                (errors.lastName &&
+                  errors.lastName.type === "minLength" &&
+                  "Wpisane imię jest za krótkie")
               }
             />
             <InputField
               type="email"
+              id="email"
               name="email"
-              label="Email"
-              className="mt-8"
+              placeholder="Email"
+              className="mt-6"
               register={emailValidation}
               error={errors.email}
-              errorMessage="Enter correct email format"
+              errorMessage="Proszę wpisać poprawny adres email"
             />
-            <SelectField
-              className="mt-8"
-              label="How can we help?"
-              name="inquiry"
-              register={requiredOnly}
-              error={errors.inquiry}
-              options={[
-                "General Inquiry or Feedback",
-                "Founder Call",
-                "Business Question",
-                "Tax Question",
-                "Technical or Website Issue",
-                "Product Demo",
-              ]}
-            />
-            <TextField
-              name="message"
-              className="mt-8"
-              label="Message"
-              register={requiredOnly}
-              error={errors.message}
+            <InputField
+              name="phone"
+              className="mt-6"
+              id="phone"
+              placeholder="Numer telefonu"
+              register={phoneValidation}
+              error={errors.phone}
               errorMessage={
-                (errors.message &&
-                  errors.message.type === "required" &&
-                  "this field is required") ||
-                (errors.message &&
-                  errors.message.type === "minLength" &&
-                  "Message too short")
+                (errors.phone &&
+                  errors.phone.type === "required" &&
+                  "Pole wymagane") ||
+                (errors.phone &&
+                  errors.phone.type === "minLength" &&
+                  "Podany numer telefonu jest za krótki")
               }
             />
-
+            <InputField
+              name="city"
+              className="mt-6"
+              id="city"
+              placeholder="Miejsce zamieszkania"
+              register={requiredOnly}
+              error={errors.city}
+              errorMessage={
+                errors.city &&
+                errors.city.type === "required" &&
+                "Pole wymagane"
+              }
+            />
+            <CSSTransition
+              in={success}
+              timeout={400}
+              classNames="contact-slide"
+              unmountOnExit>
+              <div className="rounded-lg mt-8 contact-badge flex justify-between items-center bg-white  border border-green border-1">
+                <div className="p-4 border-r-1 border border-green">
+                  <Icon icon="check" />
+                </div>
+                <p className="p-4 text-green font-bold ">
+                  Dzięki za zgłoszenie, odezwiemy się jak najszybciej!
+                </p>
+              </div>
+            </CSSTransition>
             <button
               className="btn btn--medium w-full btn--blue mt-12 disabled:opacity-50 disabled:cursor-not-allowed"
               type="submit"
               disabled={isSending}>
-              {!isSending ? "Send message" : "Sending..."}
+              {!isSending ? "Dołącz" : "Wysyłam wiadomość..."}
             </button>
           </form>
-        </div>
-        <div className="max-w-xl mx-auto mt-8 border-1 border-grey-200 shadow-3 rounded-sm bg-white ">
-          <div className="p-8 flex justify-center">
-            <a href={link} className="flex items-center justify-start">
-              <div className="icon-outline p-2 mr-5"></div>
-              <span className="text-black text-lg font-medium">{linkText}</span>
-            </a>
-          </div>
-          <div className="p-8 border-t-1 border-grey-200 flex justify-center items-center">
-            {socialMedia.map((item, i) => {
-              return (
-                <a
-                  key={i}
-                  className="mx-2"
-                  href={item.link.url}
-                  rel="noopener noreferrer"
-                  target="_blank">
-                  <Icon icon={item.social_medium} />
-                </a>
-              );
-            })}
-          </div>
         </div>
       </div>
     </section>

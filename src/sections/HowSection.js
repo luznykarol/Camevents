@@ -12,8 +12,6 @@ const HowSection = ({ data }) => {
 
   const items = data.items;
 
-  console.log(items);
-
   return (
     <section className="howSection py-18" id="howSection">
       <div className="container-lg">

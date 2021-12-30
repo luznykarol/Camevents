@@ -1,11 +1,16 @@
 import React from "react";
-import scrollTo from "gatsby-plugin-smoothscroll";
+// import scrollTo from "gatsby-plugin-smoothscroll";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 
-const ScrollLink = ({ text, className, href }) => {
+const ScrollLink = ({ onClick, text, className, href }) => {
   return (
-    <button className={className} onClick={() => scrollTo(href)}>
+    <AnchorLink
+      className={className}
+      onAnchorLinkClick={onClick}
+      to={`/${href}`}
+      title="Our team">
       {text}
-    </button>
+    </AnchorLink>
   );
 };
 

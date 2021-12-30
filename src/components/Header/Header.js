@@ -27,12 +27,10 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [navClass, setNavClass] = useState(false);
 
-  const [scrolling, setScrolling] = useState(false);
-  const [scrollTop, setScrollTop] = useState(0);
-
   const node = useRef();
 
   const handleClick = (e) => {
+    e.preventDefault();
     if (node.current.contains(e.target)) {
       return;
     }
@@ -40,27 +38,23 @@ const Header = () => {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      window.pageYOffset > 30 ? setNavClass(true) : setNavClass(false);
-    };
-
-    window.addEventListener("click", handleClick);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("click", handleClick);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [navClass]);
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [menuOpen]);
 
   // useEffect(() => {
-  //   const onScroll = (e) => {
-  //     setScrollTop(e.target.documentElement.scrollTop);
-  //     setScrolling(e.target.documentElement.scrollTop > scrollTop);
+  //   const handleScroll = () => {
+  //     window.pageYOffset > 30 ? setNavClass(true) : setNavClass(false);
   //   };
-  //   window.addEventListener("scroll", onScroll);
 
-  //   return () => window.removeEventListener("scroll", onScroll);
-  // }, [scrollTop]);
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [navClass]);
 
   const navData = {
     pages,
@@ -69,13 +63,13 @@ const Header = () => {
     handleClick,
   };
 
-  // console.log(scrollTop);
-
   return (
     <header
-      className={`${
-        navClass ? "header bg-grey-700 z-50 py-4" : "py-8 header bg-transparent"
-      }  sticky top-0 z-50`}
+      className="py-6 header bg-transparent"
+      // }  sticky top-0 z-50"
+      // className={`${
+      //   navClass ? "header bg-grey-700 z-50 py-4" : "py-8 header bg-transparent"
+      // }  sticky top-0 z-50`}
       ref={node}>
       <div className="container-lg ">
         <div className="flex w-full justify-between items-center">
@@ -87,7 +81,6 @@ const Header = () => {
             <div className="hidden lg:flex items-center">
               {pages.map((item, i) => (
                 <ScrollLink
-                  ScrollLink
                   className="nav__link"
                   key={i}
                   href={item.href}

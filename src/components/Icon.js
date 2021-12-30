@@ -6,6 +6,7 @@ import Cross from "@/icons/cross";
 import Planet from "@/icons/planet";
 import Logo from "@/icons/logo";
 import Dots from "@/icons/dots";
+import Check from "@/icons/check";
 
 const Icon = ({ icon, className }) => {
   const icons = {
@@ -15,6 +16,7 @@ const Icon = ({ icon, className }) => {
     cross: Cross,
     logo: Logo,
     planet: Planet,
+    check: Check,
   };
 
   const Icon = icons[icon];

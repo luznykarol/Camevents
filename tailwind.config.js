@@ -19,7 +19,7 @@ module.exports = {
       "black-3": "#0C223F",
       "black-4": "#171A29",
       white: "#fff",
-      green: "#163662",
+      green: "#69C681",
       grey: "#6F6F6F",
       "grey-200": "#E5E5E5",
       "grey-300": "#B1B4B9",
@@ -43,6 +43,7 @@ module.exports = {
       red: "#D34141",
       linkedin: "#0A66C2",
       input: "#D7D7D7",
+
       //
       "cam-white": "#EBEBEB",
     },
