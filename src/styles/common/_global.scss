@@ -85,6 +85,22 @@ img {
   }
 }
 
+.map-content {
+  @apply text-cam-white;
+
+  p {
+    @apply leading-7;
+
+    &:not(:last-of-type) {
+      @apply mb-4;
+    }
+
+    strong {
+      @apply text-h5;
+    }
+  }
+}
+
 .md-content {
   @apply text-cam-white;
 

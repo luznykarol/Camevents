@@ -40,7 +40,6 @@ const ContactForm = ({ title }) => {
             }, 3000);
           },
           (error) => {
-            console.log(error);
             setSending(false);
             setFormError(true);
           }
@@ -85,7 +84,6 @@ const ContactForm = ({ title }) => {
             className="form-wrap"
             noValidate
             onSubmit={handleSubmit(onSubmit)}
-            action="https://formspree.io/f/mwkyplbn"
             method="POST">
             <InputField
               type="text"

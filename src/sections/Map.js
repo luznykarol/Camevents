@@ -25,7 +25,7 @@ const Map = ({ data }) => {
             }
           />
 
-          <div className="md-content mt-6 md:mt-0 max-w-md text-cam-white">
+          <div className="map-content mt-6 md:mt-0 max-w-md text-cam-white">
             <RichText render={content.raw} />
           </div>
         </div>

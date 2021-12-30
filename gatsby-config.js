@@ -32,14 +32,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: "GTM-WH686Q6",
-        includeInDevelopment: false,
-        enableWebVitalsTracking: true,
-      },
-    },
-    {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true,
@@ -107,16 +99,6 @@ module.exports = {
         linkResolver: require("./src/utils/linkResolver").linkResolver,
         schemas: {
           page: require("./custom_types/page.json"),
-          social_media: require("./custom_types/social_media.json"),
-          job_offer: require("./custom_types/job_offer.json"),
-          header_navigation: require("./custom_types/header_navigation.json"),
-          footer_navigation: require("./custom_types/footer_navigation.json"),
-          business_type: require("./custom_types/business_type.json"),
-          footer_images: require("./custom_types/footer_images.json"),
-          author: require("./custom_types/author.json"),
-          blog_post: require("./custom_types/blog_post.json"),
-          blog_category: require("./custom_types/blog_category.json"),
-          category: require("./custom_types/category.json"),
         },
       },
     },
