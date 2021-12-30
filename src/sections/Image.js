@@ -20,7 +20,7 @@ export const query = graphql`
     primary {
       image1 {
         alt
-        fluid(maxWidth: 800, imgixParams: { q: 60 }) {
+        fluid(maxWidth: 1980, imgixParams: { q: 80 }) {
           ...GatsbyPrismicImageFluid_noBase64
         }
       }

@@ -68,36 +68,6 @@ h6,
   @apply text-h6;
 }
 
-.markdown-content {
-  strong {
-    @apply text-black;
-  }
-  a {
-    @apply inline-flex font-semibold leading-none text-cam-white justify-center rounded-sm py-6 px-8 bg-blue mt-8;
-    transition: 0.4s transform ease;
-    align-items: baseline;
-
-    &:hover {
-      transform: translateY(-4px);
-    }
-  }
-  h4 {
-    @apply text-black text-h4 mb-3;
-  }
-
-  p {
-    @apply leading-6 mb-4;
-
-    &:last-of-type {
-      @apply mb-0;
-    }
-  }
-
-  img {
-    @apply mt-10 max-w-full;
-  }
-}
-
 .description {
   @apply text-h6 leading-8 font-normal;
 
