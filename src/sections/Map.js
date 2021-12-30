@@ -1,7 +1,7 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
 import { graphql } from "gatsby";
-import MapComponent from "@/components/map";
+import MapComponent from "@/components/Map";
 
 const Map = ({ data }) => {
   const { title2, content } = data.primary;
