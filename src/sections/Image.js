@@ -4,9 +4,28 @@ import Img from "gatsby-image";
 
 const Image = ({ data }) => {
   const { image1 } = data.primary;
+
+  console.log(image1);
   return (
-    <section className="fullWidthImage">
-      <Img className="image-full" fluid={image1.fluid} />
+    <section className="relative fullWidthImage overflow-hidden">
+      <div className="flex flex-col justify-end items-center h-full">
+        {/* <div
+          className="image-full"
+          style={{ backgroundImage: `url(${image1.fluid.src})` }}></div> */}
+
+        <Img
+          style={{
+            position: "absolute",
+          }}
+          className="image-full"
+          fluid={image1.fluid}
+        />
+        <div className="container-xs">
+          <h1 className="relative z-1 text-cam-white text-center uppercase">
+            Dołącz do najlepszego zespołu cam models
+          </h1>
+        </div>
+      </div>
     </section>
   );
 };

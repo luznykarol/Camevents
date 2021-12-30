@@ -14,7 +14,6 @@ textarea {
   @apply text-base;
 }
 
-h1,
 h2,
 h3,
 h4,
@@ -23,18 +22,28 @@ h6,
 .title-1,
 .title-2,
 .title-3,
-.title-4,
+a .title-4,
 .title-5,
 .title-6 {
   @apply font-bold;
   clear: both;
+  -webkit-font-smoothing: antialiased !important;
 }
 
 h1,
 .title-1 {
-  @apply text-h2 leading-h2 mb-6;
+  // text-shadow: 0px 1px 15px rgb(59 53 66 / 60%);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-font-smoothing: antialiased !important;
+  line-height: 1.2;
+  @apply text-h1 mb-24;
+
+  @screen sm {
+    @apply leading-h2 mb-34;
+  }
   @screen md {
-    @apply text-h1 leading-h1 mb-6;
+    @apply mb-34;
+    letter-spacing: 2.30769px;
   }
 }
 

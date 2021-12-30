@@ -1,3 +1,4 @@
+$container__width-xs: 720px;
 $container__width-sm: 905px;
 $container__width: 1060px;
 $container__width-lg: 1328px;
@@ -6,6 +7,7 @@ $container__width-full: 100%;
 .container,
 .container-lg,
 .container-sm,
+.container-xs,
 .container-full {
   width: 100%;
   margin: 0 auto;
@@ -20,6 +22,10 @@ $container__width-full: 100%;
 
 .container {
   max-width: $container__width + (30px * 2);
+}
+
+.container-xs {
+  max-width: $container__width-xs + (30px * 2);
 }
 
 .container-lg {

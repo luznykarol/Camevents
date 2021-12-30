@@ -88,6 +88,7 @@ module.exports = {
       27: "7rem",
       28: "7.5rem",
       32: "8rem",
+      34: "9.375rem",
       40: "10rem",
       48: "12rem",
       52: "12.5rem",
@@ -122,7 +123,7 @@ module.exports = {
     borderOpacity: (theme) => theme("opacity"),
     borderRadius: {
       none: "0",
-      button: "1.375rem",
+      button: "1.25rem",
       sm: "0.125rem",
       default: "0.25rem",
       md: "0.375rem",
@@ -224,7 +225,7 @@ module.exports = {
       h4: "1.875rem",
       h3: "2.25rem",
       h2: "3rem",
-      h1: "3.75rem",
+      h1: "2.5rem",
     },
     fontWeight: {
       hairline: "100",
@@ -272,7 +273,7 @@ module.exports = {
       8: "2rem",
       9: "2.25rem",
       10: "2.5rem",
-      h2: "3.5rem",
+      h2: "3.75rem",
       h1: "4.5rem",
     },
     listStyleType: {

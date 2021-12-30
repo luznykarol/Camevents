@@ -19,11 +19,7 @@ const HalfSection = ({ data }) => {
             <RichText render={content.raw} />
           </div>
           <Img
-            // style={{
-            //   position: 'absolute',
-            // }}
-            className="mt-6 md:mt-0 w-full max-w-xs rounded-lg block relative"
-            // alt={data.primary.image1.alt}
+            className="mt-6 md:mt-0 w-full max-w-xs rounded-button block relative"
             fluid={image1.fluid}
           />
         </div>

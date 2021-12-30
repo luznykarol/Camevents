@@ -8,24 +8,21 @@ const Map = ({ data }) => {
 
   return (
     <section className="mapSection py-18" id="mapSection">
-      <div className="container-sm">
-        <h2 className=" uppercase text-cam-white text-center">{title2.text}</h2>
-        <div className="flex flex-col md:flex-row items-center justify-between">
+      <div className="container-xs">
+        <h2 className="uppercase text-cam-white text-center">{title2.text}</h2>
+        <div className="flex flex-col md:flex-row items-center justify-center">
           <MapComponent
             googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.GATSBY_MAP}&libraries=geometry,drawing,places`}
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={
-              <div
-                style={{ width: "380px" }}
-                className=" rounded-l h-80 w-full mt-6"
-              />
+              <div className=" max-w-sm rounded-l h-80 w-full mt-6" />
             }
             mapElement={
               <div className="rounded-l" style={{ height: `100%` }} />
             }
           />
 
-          <div className="map-content mt-6 md:mt-0 max-w-md text-cam-white">
+          <div className="map-content md:ml-24 mt-6 md:mt-0 max-w-md text-cam-white">
             <RichText render={content.raw} />
           </div>
         </div>

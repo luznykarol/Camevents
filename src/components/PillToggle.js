@@ -20,7 +20,7 @@ const PillToggle = ({ item, active, toggleQuestion, id }) => {
             // alt={data.primary.image1.alt}
             fluid={image1.fluid}
           />
-          <div className="z-10 cursor-pointer relative bg-gradient rounded-l py-6 px-4 max-w-s mx-auto">
+          <div className="z-10 cursor-pointer relative bg-gradient rounded-button py-6 px-4 max-w-s mx-auto">
             <h5
               className="text-center text-h5 leading-6 font-semibold text-cam-white transition-colors duration-300 ease-in-out
               ">

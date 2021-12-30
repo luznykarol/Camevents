@@ -9,5 +9,34 @@
 }
 
 .image-full {
+  height: auto;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  bottom: 0;
+  background-size: cover;
+  background-position: center center;
+
+  &:after {
+    content: "";
+
+    background-image: linear-gradient(
+      180deg,
+      #140e32 0%,
+      rgba(196, 196, 196, 0) 59.68%
+    );
+    mix-blend-mode: multiply;
+    transform: rotate(-180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.fullWidthImage {
   height: calc(100vh - 88px);
 }
