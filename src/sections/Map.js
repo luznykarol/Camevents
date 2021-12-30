@@ -6,9 +6,6 @@ import MapComponent from "@/components/Map";
 const Map = ({ data }) => {
   const { title2, content } = data.primary;
 
-  console.log(
-    `https://maps.googleapis.com/maps/api/js?key=${process.env.GATSBY_MAP}&libraries=geometry,drawing,places`
-  );
   return (
     <section className="mapSection py-18" id="mapSection">
       <div className="container-sm">
