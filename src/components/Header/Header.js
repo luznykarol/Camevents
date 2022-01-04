@@ -75,7 +75,8 @@ const Header = () => {
         <div className="flex w-full justify-between items-center">
           <div className="flex w-full items-center justify-between">
             <Link className="nav__brand " to="/">
-              <Icon icon="logo" />
+              {/* <Icon icon="logo" /> */}
+              <h1 className="text-cam-white mb-0">CamEvents</h1>
             </Link>
 
             <div className="hidden lg:flex items-center">

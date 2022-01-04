@@ -19,6 +19,10 @@
   background-size: cover;
   background-position: center center;
 
+  img {
+    object-position: 70% 100%;
+  }
+
   &:after {
     content: "";
 
