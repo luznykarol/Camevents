@@ -11,7 +11,7 @@ export default function Question({ item, active, toggleQuestion, id }) {
     "faq cursor-pointer relative self-start flex flex-col flex flex-col justify-center items-start mb-6";
 
   const innerClass =
-    "faq__inner rounded-md px-4 md:px-6 relative w-full flex flex-col md:flex-row justify-between items-start md:items-center cursor-pointer";
+    "bg-cam-purple-light rounded-md px-4 md:px-6 relative w-full flex flex-col md:flex-row justify-between items-start md:items-center cursor-pointer";
   return (
     <SlideToggle
       collapsed

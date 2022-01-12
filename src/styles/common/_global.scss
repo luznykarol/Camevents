@@ -100,26 +100,24 @@ img {
     }
   }
 
-  p {
-    a {
-      @apply text-cam-white font-normal leading-5;
-      background-image: linear-gradient(
-        to right,
-        #6331a2,
-        #8a388b 50%,
-        #fff 100%
-      );
+  a {
+    @apply text-cam-white font-normal leading-5;
+    background-image: linear-gradient(
+      to right,
+      #6331a2,
+      #8a388b 50%,
+      #fff 100%
+    );
 
-      background-size: 1000%;
-      background-position: 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      transition: all 0.4s cubic-bezier(0, 0, 0.23, 1);
+    background-size: 1000%;
+    background-position: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.4s cubic-bezier(0, 0, 0.23, 1);
 
-      &:hover {
-        background-position: 0%;
-        background-size: 340% 100%;
-      }
+    &:hover {
+      background-position: 0%;
+      background-size: 340% 100%;
     }
   }
 }

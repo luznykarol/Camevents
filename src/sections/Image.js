@@ -4,15 +4,9 @@ import Img from "gatsby-image";
 
 const Image = ({ data }) => {
   const { image1 } = data.primary;
-
-  console.log(image1);
   return (
     <section className="relative fullWidthImage overflow-hidden">
       <div className="flex flex-col justify-end items-center h-full">
-        {/* <div
-          className="image-full"
-          style={{ backgroundImage: `url(${image1.fluid.src})` }}></div> */}
-
         <Img
           style={{
             position: "absolute",

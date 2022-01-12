@@ -1,8 +1,7 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
 import { graphql } from "gatsby";
-import MapComponent from "@/components/Map";
-
+import Icon from "@/components/Icon";
 const Map = ({ data }) => {
   const { title2, content } = data.primary;
 
@@ -10,20 +9,27 @@ const Map = ({ data }) => {
     <section className="mapSection py-18" id="mapSection">
       <div className="container-xs">
         <h2 className="uppercase text-cam-white text-center">{title2.text}</h2>
-        <div className="flex flex-col md:flex-row items-center justify-center">
-          <MapComponent
-            googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.GATSBY_MAP}&libraries=geometry,drawing,places`}
-            loadingElement={<div style={{ height: `100%` }} />}
-            containerElement={
-              <div className=" max-w-sm rounded-l h-80 w-full mt-6" />
-            }
-            mapElement={
-              <div className="rounded-l" style={{ height: `100%` }} />
-            }
-          />
 
-          <div className="map-content md:ml-24 mt-6 md:mt-0 max-w-md text-cam-white">
-            <RichText render={content.raw} />
+        <div className="flex flex-col md:flex-row items-center justify-center">
+          <div className="map-content  mt-6 md:mt-0 max-w-md text-cam-white">
+            <a
+              href="mailto:kontakt@camevents.pl"
+              className=" flex justify-start items-center">
+              <Icon
+                className="mr-4 w-7 flex items-center justify-center"
+                icon="mail"
+              />
+              kontakt@camevents.pl
+            </a>
+            <a
+              href="tel:+48 501 155 119"
+              className="mt-6 flex justify-start items-center">
+              <Icon
+                className="w-7 flex items-center justify-center mr-4"
+                icon="phone"
+              />
+              +48 501 155 119
+            </a>
           </div>
         </div>
       </div>

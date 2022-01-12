@@ -43,9 +43,8 @@ module.exports = {
       red: "#D34141",
       linkedin: "#0A66C2",
       input: "#D7D7D7",
-
-      //
       "cam-white": "#EBEBEB",
+      "cam-purple-light": "rgba(240, 240, 240, 0.2)",
     },
     backgroundImage: {
       gradient: "linear-gradient(180deg, #8A388B 0%, #6331A2 100%)",
@@ -73,6 +72,7 @@ module.exports = {
       4: "1rem",
       5: "1.25rem",
       6: "1.5rem",
+      7: "1.875rem",
       8: "2rem",
       10: "2.5rem",
       11: "2.75rem",

@@ -45,17 +45,6 @@ const Header = () => {
     }
   }, [menuOpen]);
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     window.pageYOffset > 30 ? setNavClass(true) : setNavClass(false);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll, { passive: true });
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [navClass]);
-
   const navData = {
     pages,
     menuOpen,
@@ -64,19 +53,12 @@ const Header = () => {
   };
 
   return (
-    <header
-      className="py-6 header bg-transparent"
-      // }  sticky top-0 z-50"
-      // className={`${
-      //   navClass ? "header bg-grey-700 z-50 py-4" : "py-8 header bg-transparent"
-      // }  sticky top-0 z-50`}
-      ref={node}>
+    <header className="py-6 header bg-transparent" ref={node}>
       <div className="container-lg ">
         <div className="flex w-full justify-between items-center">
           <div className="flex w-full items-center justify-between">
             <Link className="nav__brand " to="/">
-              {/* <Icon icon="logo" /> */}
-              <h1 className="text-cam-white mb-0">CamEvents</h1>
+              <Icon icon="logo" />
             </Link>
 
             <div className="hidden lg:flex items-center">

@@ -7,6 +7,8 @@ import Planet from "@/icons/planet";
 import Logo from "@/icons/logo";
 import Dots from "@/icons/dots";
 import Check from "@/icons/check";
+import Mail from "@/icons/mail";
+import Phone from "@/icons/phone";
 
 const Icon = ({ icon, className }) => {
   const icons = {
@@ -17,6 +19,8 @@ const Icon = ({ icon, className }) => {
     logo: Logo,
     planet: Planet,
     check: Check,
+    mail: Mail,
+    phone: Phone,
   };
 
   const Icon = icons[icon];
