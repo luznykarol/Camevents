@@ -30,6 +30,13 @@ const Map = ({ data }) => {
               />
               +48 501 155 119
             </a>
+            <div className="mt-6 flex justify-start items-center">
+              <Icon
+                className="w-7 flex items-center justify-center mr-4"
+                icon="map"
+              />
+              Warszawa
+            </div>
           </div>
         </div>
       </div>

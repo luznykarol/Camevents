@@ -9,6 +9,7 @@ import Dots from "@/icons/dots";
 import Check from "@/icons/check";
 import Mail from "@/icons/mail";
 import Phone from "@/icons/phone";
+import Map from "@/icons/map";
 
 const Icon = ({ icon, className }) => {
   const icons = {
@@ -21,6 +22,7 @@ const Icon = ({ icon, className }) => {
     check: Check,
     mail: Mail,
     phone: Phone,
+    map: Map,
   };
 
   const Icon = icons[icon];
