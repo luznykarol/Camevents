@@ -24,10 +24,10 @@ const ContactForm = ({ title }) => {
       setSending(true);
       emailjs
         .sendForm(
-          "gmail",
-          "template_5cfaw7m",
+          "service_hye8kpc",
+          "template_95ygmv4",
           e.target,
-          "user_UOTM2GzZ3z02MYUVNGngq"
+          "8H4FXzbpzBA5Kjwi_"
         )
         .then(
           (res) => {
