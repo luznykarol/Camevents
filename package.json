@@ -46,7 +46,7 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "gatsby build",
+    "build": "npm run build",
     "develop": "gatsby develop",
     "preload-fonts": "gatsby-preload-fonts",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
